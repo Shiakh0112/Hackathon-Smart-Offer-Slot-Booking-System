@@ -8,9 +8,17 @@ using OfferSlotBooking.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// SQLite Database
+// Database — PostgreSQL on Render, SQLite locally
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var dbProvider = builder.Configuration["DatabaseProvider"] ?? "sqlite";
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=offerslot.db"));
+{
+    if (dbProvider.ToLower() == "postgres")
+        options.UseNpgsql(connectionString);
+    else
+        options.UseSqlite(connectionString ?? "Data Source=offerslot.db");
+});
 
 builder.Services.AddScoped<JwtService>();
 
@@ -64,7 +72,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
-        policy.WithOrigins("http://localhost:5173", "http://localhost:3000")
+        policy.AllowAnyOrigin()
               .AllowAnyHeader()
               .AllowAnyMethod());
 });
