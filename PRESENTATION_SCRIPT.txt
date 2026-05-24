@@ -1,0 +1,123 @@
+====================================================
+  SMART OFFER SLOT BOOKING SYSTEM — EXPLANATION SCRIPT
+  (2-3 Minute Video / Presentation)
+====================================================
+
+--- INTRO (15 seconds) ---
+
+"Hello, I'm presenting my Hackathon project —
+Smart Offer Slot Booking System.
+
+This is a fullstack web application that solves a real-world
+problem faced by small businesses like gyms, restaurants,
+salons, and clinics."
+
+
+--- PROBLEM (20 seconds) ---
+
+"The problem is simple —
+When a business runs a limited-time offer or discount,
+they have no proper way to manage bookings.
+
+Customers call on WhatsApp, double bookings happen,
+slots get overcrowded, and the business has zero visibility
+into how many people are actually coming.
+
+So I built a smart solution for this."
+
+
+--- SOLUTION OVERVIEW (20 seconds) ---
+
+"My system has two sides —
+
+First, an Admin Panel — where the business owner logs in,
+creates offers with prices and discounts,
+sets up time slots like 10am to 11am or 2pm to 3pm,
+and manages all bookings from one dashboard.
+
+Second, a Public Portal — where customers can browse
+all active offers, filter by category or price,
+select a slot, and book their spot in seconds."
+
+
+--- TECH STACK (20 seconds) ---
+
+"For the tech stack —
+
+Frontend is built with React 18 and TypeScript using Vite,
+styled with Tailwind CSS for a fully responsive UI.
+
+Backend is .NET 8 Web API with Entity Framework Core
+connected to a PostgreSQL database.
+
+Authentication is done using JWT tokens with BCrypt
+for secure password hashing.
+
+API documentation is auto-generated using Swagger."
+
+
+--- DEMO WALKTHROUGH (50 seconds) ---
+
+"Let me walk you through the app quickly —
+
+Starting with the Public side —
+The homepage shows all active offer cards with
+live countdown timers, discount percentage,
+seats left, and a capacity progress bar.
+
+Customers can filter by business type, category,
+and price range. When they click an offer,
+they see full details, select an available time slot,
+fill in their name and phone number, and confirm the booking.
+
+After booking, they get a Boarding Pass style ticket
+with a QR code that can be scanned at the venue.
+They can also print the ticket directly.
+
+Now the Admin side —
+Admin logs in with email and password.
+The Dashboard shows 8 live stats —
+total offers, active offers, today's bookings,
+conversion rate, and a 7-day booking trend chart.
+
+Admin can create offers, set time slots,
+and manage all bookings — confirming, completing,
+or cancelling them. There's also a one-click CSV export
+for all booking data."
+
+
+--- BUSINESS LOGIC (20 seconds) ---
+
+"The system has strong business logic built in —
+
+Expired offers cannot be booked.
+Full slots are automatically hidden from customers.
+Each customer has a per-booking limit enforced by phone number.
+Every booking gets a unique reference like BK-20240115-A3F2.
+When a booking is cancelled, the seat count automatically
+goes back to available."
+
+
+--- BONUS FEATURES (15 seconds) ---
+
+"Some bonus features I implemented —
+
+Live countdown timer that turns red when less than 1 hour is left.
+Full dark and light mode support.
+Share offer via WhatsApp or copy link.
+Live slot polling every 15 seconds on the detail page.
+And a quick toggle on the dashboard to pause or activate
+offers without leaving the page."
+
+
+--- CLOSING (10 seconds) ---
+
+"This project is fully functional, deployed live,
+and covers the complete booking lifecycle
+from offer creation to customer confirmation.
+
+Thank you."
+
+====================================================
+  TOTAL TIME: ~2.5 minutes at normal speaking pace
+====================================================
