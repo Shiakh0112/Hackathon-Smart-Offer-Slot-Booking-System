@@ -12,6 +12,14 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var dbProvider = builder.Configuration["DatabaseProvider"] ?? "sqlite";
 
+// Convert postgresql:// URL to Npgsql format if needed
+if (!string.IsNullOrEmpty(connectionString) && connectionString.StartsWith("postgresql://"))
+{
+    var uri = new Uri(connectionString);
+    var userInfo = uri.UserInfo.Split(':');
+    connectionString = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
+}
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     if (dbProvider.ToLower() == "postgres")
